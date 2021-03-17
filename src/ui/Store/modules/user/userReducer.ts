@@ -4,6 +4,7 @@ import { USER_LOGIN_FAILURE } from './actionTypes';
 const initialState = { };
 
 const userReducer = (state = initialState, action) => {
+    console.log('action: ', action) // objeto con propiedades, la que podemos trabajar y nos importa es "payload: {password: "natacha123" user: "natachaplaytomic@gmail.com"}" 
   switch (action.type) {
   case USER_LOGIN_SUCCESS:
     return {
