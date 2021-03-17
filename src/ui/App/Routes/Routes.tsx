@@ -7,11 +7,12 @@ import { PrivateRoute } from './PrivateRoute';
 import { useSelector, useDispatch } from 'react-redux';
 import {firebase} from '../../firebase/firebase'
 import {setUserLogged} from '../../Store/modules/user/actions'
+import { RootState } from '../../Store/rootReducers';
 
 
 const Routes: React.FC = () => {
   const history = useHistory();
-  const redirectUser = (isLogged) => {
+  const redirectUser = (isLogged: boolean) => {
     if (isLogged) {
       console.log('redirect');
       history.push('/dashboard');
@@ -24,12 +25,13 @@ const Routes: React.FC = () => {
   };
   
   // engancharnos al contexto, con un useSelector y ver si la propiedad isLogged  cambia
-  const {isLogged} = useSelector(state => state.user);
+  const {isLogged} = useSelector((state: RootState) => state.user);
   console.log('isLogged: ', isLogged)
 
   // Escuchamos si el usuario está logueado
   useEffect(() => {
     redirectUser(isLogged);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLogged]);
 
   // Fase de montaje, para leer de firebase y sabrá cuando se monte si el usuario esta logueado o no
@@ -37,9 +39,10 @@ const Routes: React.FC = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        dispatch(setUserLogged(user));
+        dispatch(setUserLogged({ email: user.email || '', displayName: user.displayName || ''}));
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (

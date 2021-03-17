@@ -16,7 +16,14 @@ export const setUserLoginFailure = ():UserActions => ({
   type: USER_LOGIN_FAILURE
 });
 
-export const signIn = ({user,password}) => {
+
+type UserLoginsFields = {
+    user: string;
+    password: string;
+}
+
+
+export const signIn = ({user,password}: UserLoginsFields) => {
     console.log('user: ', user)
     console.log('password: ', password)
     return async (dispatch: ThunkDispatch<{}, {}, UserActions>): Promise<void> => {
@@ -27,7 +34,8 @@ export const signIn = ({user,password}) => {
                 password
             );
             console.log('Login en firebase correcto', response);
-            dispatch(setUserLogged({user, password }));
+            const userLogged = { email: response.user?.email || '', displayName: response.user?.displayName || ''};
+            dispatch(setUserLogged(userLogged));
         } catch( error) {
             console.log('login en firebase inCorrecto');
             dispatch(setUserLoginFailure());

@@ -7,7 +7,7 @@ export type User = {
   
 export type UserState = {
     isLogged: boolean,
-    user: User
+    user: User | null
 }
 
 

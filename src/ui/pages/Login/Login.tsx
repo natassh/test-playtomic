@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
 
   
-  const handleOnSubmit = async (event) => {
+  const handleOnSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     console.log({user});
     console.log({password});
@@ -20,11 +20,11 @@ const Login: React.FC = () => {
     }));
   };
 
-  const handleOnUser = (event) => {
+  const handleOnUser = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser(event.target.value);
   };
 
-  const handleOnPassword = (event) => {
+  const handleOnPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
   return (
