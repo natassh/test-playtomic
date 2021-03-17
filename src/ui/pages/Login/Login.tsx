@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+//Hook useDispach que nos devuelve la función dispach similar a la del fichero actionCreator
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../Store/modules/user/actions';
 
@@ -12,6 +13,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     console.log({user});
     console.log({password});
+    //  a la función dispatch, le pasamos  nuestra acción, que en este caso neceista un  objeto con el user y el password
     dispatch(signIn({
       user,
       password
