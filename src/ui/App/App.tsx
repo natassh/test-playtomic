@@ -3,7 +3,7 @@ import {BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 
-import { Routes } from './ui/App/Routes/Routes';
+import { Routes } from './Routes/Routes';
 
 const App:React.FC = () => {
 

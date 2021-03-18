@@ -56,10 +56,7 @@ const Routes: React.FC = () => {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <Link to="/settings">Settings</Link>
-              </li>
-              <li>
-                <Link to="/companies">Companies</Link>
+                <Link to="/settings">Pistas</Link>
               </li>
             </ul>
           </nav>

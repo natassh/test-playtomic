@@ -1,6 +1,6 @@
 import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from './actionTypes';
-import { UserState } from './@types/user';
-import { SetUserLoggedAction, UserActions } from './@types/actions';
+import { UserState } from './types/user';
+import { SetUserLoggedAction, UserActions } from './types/actions';
 
 const initialState = {
   isLogged: false,

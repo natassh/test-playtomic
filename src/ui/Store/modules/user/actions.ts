@@ -1,8 +1,8 @@
 import { USER_LOGIN_SUCCESS } from './actionTypes';
 import { USER_LOGIN_FAILURE } from './actionTypes';
 import {firebase} from '../../../firebase/firebase'
-import { User } from './@types/user';
-import { UserActions } from './@types/actions';
+import { User } from './types/user';
+import { UserActions } from './types/actions';
 import {  ThunkDispatch } from 'redux-thunk'
 
 
