@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {firebase} from '../../firebase/firebase'
 import {setUserLogged} from '../../Store/modules/user/actions'
 import { RootState } from '../../Store/rootReducers';
+import logo from '../../assets/images/logo-playtomic.png';
 
 
 const Routes: React.FC = () => {
@@ -51,21 +52,26 @@ const Routes: React.FC = () => {
     <Switch>
       {!isLogged && <Route exact path="/" component={Login} /> }
       {isLogged && (
-        <>
-          <nav className="main-nav">
-            <ul>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/courts">Courts</Link>
-              </li>
-            </ul>
-          </nav>
+        <div className="cw">
+          <header className="main-header">
+            <h1>
+              <img src={logo} alt="Logo devjobs" />
+            </h1>
+            <nav className="main-nav">
+              <ul>
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li>
+                  <Link to="/courts">Courts</Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/courts" component={Courts} />
           <PrivateRoute exact path="/court/:id/update" component={CourtEdit} />
-        </>
+        </div>
       )}
     </Switch>
   );

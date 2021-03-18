@@ -29,7 +29,7 @@ const Login: React.FC = () => {
     setPassword(event.target.value);
   };
   return (
-    <div className="App cw">
+    <div className="App">
       <form onSubmit={handleOnSubmit} className="LoginForm">
         <input type="text" name="user" value={user} placeholder="Email" onChange={handleOnUser}  />
         <input type="password" name="password" value={password} placeholder="Password" onChange={handleOnPassword} />

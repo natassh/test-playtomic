@@ -14,3 +14,7 @@ body {
   font-weight: var(--regular);
   background-color: var(--bg);
 }
+.cw {
+    width: 90%;
+    margin: 0 auto;
+}
