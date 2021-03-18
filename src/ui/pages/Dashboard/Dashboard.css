@@ -38,5 +38,30 @@
     }
 }
 .Dashboard {
-
+    & h2 {
+        font-size: 2rem;
+        & strong {
+            color: var(--second-color)
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .Dashboard {
+        & h2 {
+            font-size: 1.3rem;
+            & strong {
+                color: var(--second-color)
+            }
+        }
+    }
+}
+@media screen and (max-width: 425px) {
+    .Dashboard {
+        & h2 {
+            font-size: 1.125rem;
+            & strong {
+                color: var(--second-color);
+            }
+        }
+    }
 }

@@ -1,0 +1,114 @@
+.Courts {
+    & ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        & li {
+            list-style: none;
+            margin-right: 2rem;
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 0.25rem;
+            width: 31.4%;
+            margin-bottom: 1.5rem;
+            & p {
+                & strong {
+                    color: var(--main-color);
+                }
+            }
+            & div h3{
+                color: var(--second-color-text);
+            }
+            & div a, & div button {
+                display: inline-block;
+                text-align: center;
+                color: var(--second-color-text);
+                width: 40%;
+                border: none;
+                background-color: var(--second-color);
+                color: var(--white-color);
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                font-size: var(--font-size);
+                text-decoration: none;
+                margin-right: 1rem;
+            }
+            & div a:hover, & div button:hover {
+                text-decoration: underline;
+            }
+        }
+        & li:last-child, & li:nth-child(3n+3) {
+            margin-right: 0rem;
+        }
+    }
+}
+.courtsForm {
+    & p {
+        & label {
+            width: 20rem;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+            font-size: 1.0625rem;
+            & input {
+                display: block;
+                border: none;
+                padding: 1rem;
+                width: 100%;
+                margin-top: 0.8rem;
+                color: var(--primary-color-text);
+                letter-spacing: 0.5px;
+                font-size: var(--font-size);
+            }
+            & input:focus {
+                outline: none !important;
+                border:1px solid var(--second-color);
+            }
+        }
+
+    }
+    & button {
+        display: inline-block;
+        text-align: center;
+        color: var(--second-color-text);
+        width: 15rem;
+        border: none;
+        background-color: var(--second-color);
+        color: var(--white-color);
+        padding: 1rem;
+        border-radius: 0.25rem;
+        font-size: var(--font-size);
+        text-decoration: none;
+        margin-top: 0.7rem; 
+    }
+}
+@media screen and (max-width: 1023px) {
+    .Courts {
+        & ul {
+            & li {
+                width: 47.7%;
+            }
+            & li:nth-child(2n+2) {
+                margin-right: 0rem;
+            }
+            & li:nth-child(3n+3) {
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .Courts {
+        & ul {
+            & li {
+                width: 100%;
+                margin-right: 0;
+            }
+            & li:nth-child(3n+3) {
+                margin-right: 0;
+            }
+        }
+    }
+}

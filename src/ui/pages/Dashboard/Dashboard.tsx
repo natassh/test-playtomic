@@ -8,8 +8,8 @@ const Dashboard: React.FC =() => {
   const user = useSelector((state: RootState) => state.user);
   console.log('user dashboard: ', user)
   return (
-    <section className="Dasboard">
-      <header><h1>hello: {user.user?.email}</h1></header>
+    <section className="Dashboard">
+      <header><h2>Hello, <strong>{user.user?.email}</strong>.</h2></header>
     </section>
   );
 };

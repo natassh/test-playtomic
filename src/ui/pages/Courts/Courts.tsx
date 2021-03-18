@@ -3,6 +3,7 @@ import { firebase } from '../../firebase/firebase';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store/rootReducers';
+import './Courts.css'
 
 // NOTA: Toda esta página a nivel de componetización y UX es muy mejorable, 
 // la idea aquí es ver como hacer un CRUD, el resto ya es dedicarle tiempo a dejarlo fino.
@@ -93,31 +94,31 @@ const Courts: React.FC =() => {
     }
   };
   return (
-    <section>
-      hello: {user.user?.displayName} - {user.user?.email}
-      <header><h1>Courts</h1></header>
-      <ol>
+    <section className="Courts">
+      <header><h2>Courts</h2></header>
+      <ul>
         {courts.map((court) => {
           console.log('court: ', court)
           return ( 
             <>
             <li key={court.id}>
-              <p>name: {court.name}</p>
-              <p>street: {court.street}</p>
-              <p>city: {court.city}</p>
+              <p>Name: <strong>{court.name}</strong></p>
+              <p>Street: <strong>{court.street}</strong></p>
+              <p>City: <strong>{court.city}</strong></p>
+              <div>
+                <h3>Actions</h3>
+                <Link to={`/court/${court.id}/update`}>Edit</Link> 
+                <button onClick={() => handleDeleteCourt(court.id)}>Delete</button>
+              </div>
             </li>
-            <div>
-              <h3>Actions</h3>
-              <Link to={`/court/${court.id}/update`}>Edit</Link> 
-              <button onClick={() => handleDeleteCourt(court.id)}>Delete</button>
-            </div>
+            
             </>
           );
         })}  
-      </ol>
+      </ul>
       <aside>
         <h2>Create court</h2>
-        <form onSubmit={handleOnSubmitCourt}>
+        <form className="courtsForm" onSubmit={handleOnSubmitCourt}>
           <p>
             <label>Name: <input type="text" value={nameCourt} onChange={(event) => setNameCourt(event.target.value)} /></label>
           </p>

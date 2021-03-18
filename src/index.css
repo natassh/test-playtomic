@@ -15,6 +15,27 @@ body {
   background-color: var(--bg);
 }
 .cw {
-    width: 90%;
+    width: 1200px;
+    padding: 0 2rem 0 2rem;
     margin: 0 auto;
+}
+@media screen and (max-width: 1199px) {
+    .cw {
+        width: 1024px;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .cw {
+        width: 768px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .cw {
+        width: 425px;
+    }
+}
+@media screen and (max-width: 424px) {
+    .cw {
+        width: 100%;
+    }
 }

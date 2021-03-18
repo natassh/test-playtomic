@@ -61,8 +61,8 @@ const CourtEdit: React.FC =() => {
 
   return (
     <section>
-      <form onSubmit={handleOnSubmitCourt}>
-        <legend>Company Edit</legend>
+      <h2>Edit court</h2>
+      <form className="courtsForm" onSubmit={handleOnSubmitCourt}>
         <p>
             <label>Name: <input type="text" value={nameCourt} onChange={(event) => setNameCourt(event.target.value)} /></label>
           </p>
