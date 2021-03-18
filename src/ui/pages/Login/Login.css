@@ -1,0 +1,61 @@
+.LoginForm {
+    width: 47rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--white-color);
+    border-radius: 0.25rem;
+    & input {
+       width: 33%; 
+       border: none;
+       border-bottom: 1px solid var(--second-color);
+       margin-right: 1rem;
+       padding: 1rem;
+       color: var(--primary-color-text);
+       letter-spacing: 0.5px;
+       font-size: var(--font-size);
+    }
+    & input:focus {
+        outline: none !important;
+        border:1px solid var(--second-color);
+    }
+    & input::placeholder {
+        color: var( --third-color-text);
+    }
+}
+.btn {
+    width: 30%;
+    border: none;
+    background-color: var(--second-color);
+    color: var(--white-color);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    font-size: var(--font-size);
+}
+@media screen and (max-width: 768px) {
+    .LoginForm {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        & input {
+            width: 65%;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+    }
+    .btn {
+        margin-top: 1rem;
+        width: 65%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .LoginForm {
+        & input {
+            width: 90%;
+        }
+    }
+    .btn {
+        width: 90%;
+    }
+}

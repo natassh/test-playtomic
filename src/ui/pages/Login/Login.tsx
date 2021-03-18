@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 //Hook useDispach que nos devuelve la función dispach similar a la del fichero actionCreator
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../Store/modules/user/actions';
+import './Login.css';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,12 +29,11 @@ const Login: React.FC = () => {
     setPassword(event.target.value);
   };
   return (
-    <div className="App">
-      
-      <form onSubmit={handleOnSubmit}>
-        <input type="text" name="user" value={user} onChange={handleOnUser} />
-        <input type="password" name="password" value={password} onChange={handleOnPassword} />
-        <button>login</button>
+    <div className="App cw">
+      <form onSubmit={handleOnSubmit} className="LoginForm">
+        <input type="text" name="user" value={user} placeholder="Email" onChange={handleOnUser}  />
+        <input type="password" name="password" value={password} placeholder="Password" onChange={handleOnPassword} />
+        <button className="btn">Login</button>
       </form>
     </div>
   );

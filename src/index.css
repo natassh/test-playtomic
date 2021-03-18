@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
+@import 'global-var.css';
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  font-weight: var(--regular);
+  background-color: var(--bg);
+}

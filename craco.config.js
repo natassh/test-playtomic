@@ -5,8 +5,6 @@ module.exports = {
         stage: 2,
         features: {
           'nesting-rules': true,
-          'custom-selectors': true,
-          'custom-media-queries': true,
         },
       }
     }

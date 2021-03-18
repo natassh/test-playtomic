@@ -1,11 +1,15 @@
-#root {
+/* #root {
   text-align: center;
   & .main-nav {
     color: yellow;
-    height: 40vmin;
-    pointer-events: none;
     & ul li {
       font-size: 5rem;
     }
   }
+} */
+.App {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
