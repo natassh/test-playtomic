@@ -34,7 +34,7 @@ export const signIn = ({user,password}: UserLoginsFields) => {
                 password
             );
             console.log('Login en firebase correcto', response);
-            const userLogged = { email: response.user?.email || '', displayName: response.user?.displayName || ''};
+            const userLogged = { email: response.user?.email || '', displayName: response.user?.displayName || '', photo: response.user?.photoURL || ""};
             dispatch(setUserLogged(userLogged));
         } catch( error) {
             console.log('login en firebase inCorrecto');

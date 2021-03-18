@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Settings: React.FC =() => {
+const Courts: React.FC =() => {
   return (
     <section>
       <header><h1>Pistas</h1></header>
@@ -8,4 +8,4 @@ const Settings: React.FC =() => {
   );
 };
 
-export { Settings };
+export { Courts };

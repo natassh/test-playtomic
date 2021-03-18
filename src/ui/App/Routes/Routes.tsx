@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { Switch, Route, useHistory, Link } from 'react-router-dom';
 import {Login } from '../../pages/Login/Login';
 import {Dashboard } from '../../pages/Dashboard/Dashboard';
-import {Settings } from '../../pages/Settings/Settings';
+import {Courts } from '../../pages/Courts/Courts';
 import { PrivateRoute } from './PrivateRoute';
 import { useSelector, useDispatch } from 'react-redux';
 import {firebase} from '../../firebase/firebase'
@@ -38,8 +38,9 @@ const Routes: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
+      console.log('user: ', user)
       if (user) {
-        dispatch(setUserLogged({ email: user.email || '', displayName: user.displayName || ''}));
+        dispatch(setUserLogged({ email: user.email || '', displayName: user.displayName || '', photo: user.photoURL || ""}));
       }
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,12 +57,12 @@ const Routes: React.FC = () => {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <Link to="/settings">Pistas</Link>
+                <Link to="/courts">Pistas</Link>
               </li>
             </ul>
           </nav>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/settings" component={Settings} />
+          <PrivateRoute exact path="/courts" component={Courts} />
         </>
       )}
     </Switch>

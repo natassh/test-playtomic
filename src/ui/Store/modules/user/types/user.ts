@@ -2,7 +2,8 @@
 
 export type User = {
     email: string,
-    displayName: string
+    displayName: string,
+    photo: string
 }
   
 export type UserState = {
