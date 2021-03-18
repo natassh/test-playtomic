@@ -47,7 +47,6 @@ const Courts: React.FC =() => {
           } as Court);
         
         });
-        console.log('courtsDoc: ',courtsDoc);
         setCourts(courts);
       } catch (e) {
         console.log('e: ',e);
@@ -65,9 +64,6 @@ const Courts: React.FC =() => {
   // 2. ADD -> Create of CRUD
   const handleOnSubmitCourt = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log({nameCourt});
-    console.log({streetCourt});
-    console.log({cityCourt});
     // llamada devolverá una promesa con el objeto de tipo firebase con la refencia a ese documento
     try {
       const docRef = await db.collection(COURT_COLLECTION).add({
@@ -75,9 +71,8 @@ const Courts: React.FC =() => {
         street: streetCourt,
         city: cityCourt,
       });
-      console.log('docRef: ', docRef);
+      console.log(docRef);
       clearForm();
-      setReload(new Date().getTime());
     } catch(error) {
       console.error('Error adding document: ', error);
     }
@@ -85,20 +80,20 @@ const Courts: React.FC =() => {
 
   // 3. DELETE -> Delete of CRUD
   const handleDeleteCourt = async (id: string): Promise<void> => {
-    console.log('delete', id);
     try {
       await db.collection(COURT_COLLECTION).doc(id).delete();
       console.log('Doc delete ', id);
+      setReload(new Date().getTime());
     } catch (error) {
       console.error('Error deleting document: ', error);
     }
   };
   return (
     <section className="Courts">
+      <aside><h2>Hello, <strong>{user.user?.email}</strong>.</h2></aside>
       <header><h2>Courts</h2></header>
       <ul>
         {courts.map((court) => {
-          console.log('court: ', court)
           return ( 
             <>
             <li key={court.id}>

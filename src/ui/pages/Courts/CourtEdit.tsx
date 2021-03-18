@@ -42,16 +42,12 @@ const CourtEdit: React.FC =() => {
   // 4. UPDATE -> Update of CRUD
   const handleOnSubmitCourt = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log({nameCourt});
-    console.log({streetCourt});
-    console.log({cityCourt});
     try {
       await db.collection(COURT_COLLECTION).doc(id).update({
         name: nameCourt,
         street: streetCourt,
         city: cityCourt,
       });
-      console.log('doc ID updated: ', id);
       setReload(new Date().getTime());
       history.push('/courts');
     } catch(error) {

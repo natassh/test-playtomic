@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import { Switch, Route, useHistory, Link } from 'react-router-dom';
 import {Login } from '../../pages/Login/Login';
 import {Dashboard } from '../../pages/Dashboard/Dashboard';
@@ -16,11 +16,9 @@ const Routes: React.FC = () => {
   const history = useHistory();
   const redirectUser = (isLogged: boolean) => {
     if (isLogged) {
-      console.log('redirect');
       history.push('/dashboard');
       // User is signed in.
     } else {
-      console.log('no redirect');
       // No user is signed in
       history.push('/');
     }
@@ -28,7 +26,6 @@ const Routes: React.FC = () => {
   
   // engancharnos al contexto, con un useSelector y ver si la propiedad isLogged  cambia
   const {isLogged} = useSelector((state: RootState) => state.user);
-  console.log('isLogged: ', isLogged)
 
   // Escuchamos si el usuario está logueado
   useEffect(() => {
@@ -40,7 +37,6 @@ const Routes: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      console.log('user: ', user)
       if (user) {
         dispatch(setUserLogged({ email: user.email || '', displayName: user.displayName || '', photo: user.photoURL || ""}));
       }
@@ -52,26 +48,29 @@ const Routes: React.FC = () => {
     <Switch>
       {!isLogged && <Route exact path="/" component={Login} /> }
       {isLogged && (
-        <div className="cw">
-          <header className="main-header">
-            <h1>
-              <img src={logo} alt="Logo devjobs" />
-            </h1>
-            <nav className="main-nav">
-              <ul>
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-                <li>
-                  <Link to="/courts">Courts</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/courts" component={Courts} />
-          <PrivateRoute exact path="/court/:id/update" component={CourtEdit} />
-        </div>
+        <Fragment>
+          <div className="cw">
+            <header className="main-header">
+              <h1>
+                <img src={logo} alt="Logo devjobs" />
+              </h1>
+              <nav className="main-nav">
+                <ul>
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/courts">Courts</Link>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/courts" component={Courts} />
+            <PrivateRoute exact path="/court/:id/update" component={CourtEdit} />
+          </div>
+        </Fragment>
+        
       )}
     </Switch>
   );
