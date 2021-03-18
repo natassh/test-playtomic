@@ -3,6 +3,7 @@ import { Switch, Route, useHistory, Link } from 'react-router-dom';
 import {Login } from '../../pages/Login/Login';
 import {Dashboard } from '../../pages/Dashboard/Dashboard';
 import {Courts } from '../../pages/Courts/Courts';
+import {CourtEdit } from '../../pages/Courts/CourtEdit';
 import { PrivateRoute } from './PrivateRoute';
 import { useSelector, useDispatch } from 'react-redux';
 import {firebase} from '../../firebase/firebase'
@@ -63,6 +64,7 @@ const Routes: React.FC = () => {
           </nav>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/courts" component={Courts} />
+          <PrivateRoute exact path="/court/:id/update" component={CourtEdit} />
         </>
       )}
     </Switch>
