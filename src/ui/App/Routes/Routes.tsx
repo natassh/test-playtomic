@@ -52,7 +52,7 @@ const Routes: React.FC = () => {
       {!isLogged && <Route exact path="/" component={Login} /> }
       {isLogged && (
         <>
-          <nav>
+          <nav className="main-nav">
             <ul>
               <li>
                 <Link to="/dashboard">Dashboard</Link>
