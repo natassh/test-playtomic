@@ -1,0 +1,1 @@
+export const COURT_COLLECTION = 'courts';

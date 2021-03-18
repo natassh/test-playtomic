@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store/rootReducers';
 import './Courts.css'
+import { Court } from '../../../core/courts/types/courts';
+import {getCourts} from '../../../core/courts/services/getCourts'
+
 
 // NOTA: Toda esta página a nivel de componetización y UX es muy mejorable, 
 // la idea aquí es ver como hacer un CRUD, el resto ya es dedicarle tiempo a dejarlo fino.
-type Court = {
-  id: string;
-  name: string;
-  city: string;
-  street: string;
-}
+
 
 // inicializar la base de datos
 const db = firebase.firestore();
@@ -31,28 +29,11 @@ const Courts: React.FC =() => {
 
   // 1. GET -> Read of CRUD
   useEffect(() => {
-    const getCourts = async () => {
-      try {
-        const courtsDoc = await db.collection(COURT_COLLECTION).get();
-        // Create personal array - // Crear array de companies con la estructura de nuestro tipado
-        const courts: Court[] = [];
-        // forEach firestone object and extract my fields
-        courtsDoc.forEach((doc) => {
-          const court = doc.data();
-          courts.push({
-            id: doc.id,
-            name: court.name,
-            street: court.street,
-            city: court.city,
-          } as Court);
-        
-        });
-        setCourts(courts);
-      } catch (e) {
-        console.log('e: ',e);
-      }
+    const initCourts = async () => {
+      const courts = await getCourts();
+      setCourts(courts);
     };
-    getCourts();
+    initCourts();
   }, [reload]);
 
   const clearForm = () => {
@@ -72,6 +53,7 @@ const Courts: React.FC =() => {
         city: cityCourt,
       });
       console.log(docRef);
+      setReload(new Date().getTime());
       clearForm();
     } catch(error) {
       console.error('Error adding document: ', error);
