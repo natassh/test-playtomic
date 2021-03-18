@@ -1,5 +1,6 @@
 import firebase from "firebase/app"; //Es el core y mínimo para que funcione
 import "firebase/auth"; // Este es el servicio de autorization para hacer login
+import 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAIJCNiLFFcSBSJjN0KtabxocQ4c7Qy4pA",
