@@ -1,46 +1,48 @@
-<!-- # Getting Started with Create React App
+# Playtomic test by Natacha
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La aplicación está desarrollada con React y TypeScript usando el boilerplate CRA.
 
-## Available Scripts
+A nivel de sistema de login he usado Firebase, la parte de autentificación con el usuario y contraseña.
 
-In the project directory, you can run:
+Lo he desplegado en Netlify, esta es el enlace para poder probarla: [Playtomic test by Natacha](https://natacha-test-playtomic.netlify.app/).
 
-### `npm start`
+El usuario y contraseña para poder entrar son los suientes:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+Email: natachaplaytomic@gmail.com
+Password: natacha123
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Otra parte importante de este proyecto es la gestión del estado, la cual he gestionado con Redux tal y como pedíais en la prueba.  
+En el estado he decidido solo poner el tema del usuario del login porque es la parte común que yo voy a compartir en diferentes vistas.  
+La parte de Firestore he decidido no ponerla como modulo de Redux porque solo lo uso en una única parte y no es compartida en demás vistas.  
 
-### `npm test`
+También he gestionado las rutas autentificadas para cuando una vez estes logueado te redirija al Dashboard.   
+He añadido la persistencia del login. He leído que es mejor hacerlo por cookie aumque yo lo he hecho en modo Session Strage para facilitar el desarrollo.   
+Una vez logueado, si recargamos la página, reconoce que estas logueado y te redirige al Dashboard.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La pagina del Login, tiene el login con los campos para loguearse.  
+La página del Dashboard muestra el email del usuario logueado y el menu de navegación que comparte con la página Courts.   
+La página Courts, es en la que he desarrollado el CRUD. Aprovechando que ya estaba Firebase, he usado la base de datos Firestore.   
+Es un CRUD muy básico, con unos campos de ejemplo en el que se puede ver como hacer un CRUD de pistas, listar, dar de alta, eliminar y actualizar pistas.  
+Normalmente componetizo mucho más, lo divido en mas Componentes, creo subpaginas (como por ejemplo la página de añadir una pista) y por falta de tiempo no me he centrado en esa parte.
 
-### `npm run build`
+Lo normal en los desarrollos que suelo hacer es desacoplar mi ui de los servicios de modo que mi vista no dependa de las llamadas a terceros. También si el día de mañana cambiamos el servicio, nuestra ui no se ve afectada. He dejado un servicio desacoplado a modo de ejemplo ya que para ir más rápido en el desarrollo, los demás los he dejado todo en un único fichero. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+En cuanto a la maqueación, me he saltado el diseño que teníais, ya que me disteis libertad para ello, y he aprovechado a darle unos estilos conforme a la página de playtomic.io.   
+La página es responsive.  
+Los estilos los he gestionado con css, con PostCSS en este caso, he sobreescrito un poco la configuración de webpack para poder dar soporte al plugin de PostCSS que me gusta, que es el `nesting-rules`.   
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+He hecho unos Test muy básicos porque la aplicación no tiene mucha lógica.  
+Hay un test unitario con JEST, test e2e con Cypress y un test de integración con Testing Library.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/). -->
+
+
