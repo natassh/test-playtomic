@@ -61,6 +61,7 @@ const Courts: React.FC =() => {
       console.error('Error deleting document: ', error);
     }
   };
+ 
   return (
     <section className="Courts">
       <aside><h2>Hello, <strong>{user.user?.email}</strong>.</h2></aside>
@@ -68,7 +69,6 @@ const Courts: React.FC =() => {
       <ul>
         {courts.map((court) => {
           return ( 
-            <>
             <li key={court.id}>
               <p>Name: <strong>{court.name}</strong></p>
               <p>Street: <strong>{court.street}</strong></p>
@@ -79,7 +79,6 @@ const Courts: React.FC =() => {
                 <button onClick={() => handleDeleteCourt(court.id)}>Delete</button>
               </div>
             </li>
-            </>
           );
         })}  
       </ul>
