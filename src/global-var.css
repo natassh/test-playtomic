@@ -1,14 +1,14 @@
 :root {
-    --bg: #F2F2F2;
-    --main-color: #037169;
-    --second-color: #A4D96D;
-    --white-color: #fff;
-    --primary-color-text: #303333;
-    --second-color-text: #585B5B;
-    --third-color-text: #C7C7C7;
+  --bg: #F2F2F2;
+  --main-color: #037169;
+  --second-color: #A4D96D;
+  --white-color: #fff;
+  --primary-color-text: #303333;
+  --second-color-text: #585B5B;
+  --third-color-text: #C7C7C7;
 
-    --main-font: 'Work Sans', sans-serif;
-    --medium: 500;
-    --regular: 400;
-    --font-size: 1rem;
-  }
+  --main-font: 'Work Sans', sans-serif;
+  --medium: 500;
+  --regular: 400;
+  --font-size: 1rem;
+}

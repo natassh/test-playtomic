@@ -1,18 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { firebase } from '../../firebase/firebase';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { firebase } from '../../firebase/firebase';
 import { RootState } from '../../Store/rootReducers';
-import './Courts.css'
 import { Court } from '../../../core/courts/types/courts';
 import {getCourts} from '../../../core/courts/services/getCourts'
+import './Courts.css'
 
-
-// NOTA: Toda esta página a nivel de componetización y UX es muy mejorable, 
-// la idea aquí es ver como hacer un CRUD, el resto ya es dedicarle tiempo a dejarlo fino.
-
-
-// inicializar la base de datos
 const db = firebase.firestore();
 
 const COURT_COLLECTION = 'courts';
@@ -27,7 +21,7 @@ const Courts: React.FC =() => {
 
   const [reload, setReload] = useState<number>(0);
 
-  // 1. GET -> Read of CRUD
+  // GET 
   useEffect(() => {
     const initCourts = async () => {
       const courts = await getCourts();
@@ -42,17 +36,15 @@ const Courts: React.FC =() => {
     setCityCourt('');
   };
 
-  // 2. ADD -> Create of CRUD
+  // ADD 
   const handleOnSubmitCourt = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    // llamada devolverá una promesa con el objeto de tipo firebase con la refencia a ese documento
     try {
       const docRef = await db.collection(COURT_COLLECTION).add({
         name: nameCourt,
         street: streetCourt,
         city: cityCourt,
       });
-      console.log(docRef);
       setReload(new Date().getTime());
       clearForm();
     } catch(error) {
@@ -60,11 +52,10 @@ const Courts: React.FC =() => {
     }
   };
 
-  // 3. DELETE -> Delete of CRUD
+  // DELETE 
   const handleDeleteCourt = async (id: string): Promise<void> => {
     try {
       await db.collection(COURT_COLLECTION).doc(id).delete();
-      console.log('Doc delete ', id);
       setReload(new Date().getTime());
     } catch (error) {
       console.error('Error deleting document: ', error);
@@ -88,7 +79,6 @@ const Courts: React.FC =() => {
                 <button onClick={() => handleDeleteCourt(court.id)}>Delete</button>
               </div>
             </li>
-            
             </>
           );
         })}  

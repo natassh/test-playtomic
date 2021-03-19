@@ -1,5 +1,3 @@
-// Tipar el objeto de nuetsro estado
-
 export type User = {
     email: string,
     displayName: string,

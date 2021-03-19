@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../Store/rootReducers';
 
 const PrivateRoute: React.FC<RouteProps> = ({...rest}) => {
-  // Leemos del contexto si esta logueado
   const {isLogged} = useSelector( (state: RootState) => state.user);
   
   return (

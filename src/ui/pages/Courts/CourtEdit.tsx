@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { firebase } from '../../firebase/firebase';
 import { useParams, useHistory } from 'react-router-dom';
+import { firebase } from '../../firebase/firebase';
 
-// inicializar la base de datos
 const db = firebase.firestore();
 
 const COURT_COLLECTION = 'courts';
@@ -39,7 +38,7 @@ const CourtEdit: React.FC =() => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload]);
 
-  // 4. UPDATE -> Update of CRUD
+  // UPDATE 
   const handleOnSubmitCourt = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     try {

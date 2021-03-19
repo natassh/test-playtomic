@@ -1,6 +1,4 @@
 
-// Tipar acciones
-
 import { User } from './user';
 
 export type SetUserLoggedAction = {

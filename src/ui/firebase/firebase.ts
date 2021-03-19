@@ -1,5 +1,5 @@
-import firebase from "firebase/app"; //Es el core y mínimo para que funcione
-import "firebase/auth"; // Este es el servicio de autorization para hacer login
+import firebase from "firebase/app"; 
+import "firebase/auth"; 
 import 'firebase/firestore';
 
 const firebaseConfig = {

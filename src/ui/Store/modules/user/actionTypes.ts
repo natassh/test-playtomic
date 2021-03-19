@@ -1,4 +1,4 @@
-// Clave para agrupar e identificar el modulo
+// Module key
 const KEY_MODULE = '[USER]: ';
 
 export const USER_LOGIN_SUCCESS = `${KEY_MODULE} LOGIN_SUCCESS`;

@@ -1,7 +1,7 @@
 export type Court = {
-    id: string;
-    name: string;
-    city: string;
-    street: string;
-  }
+  id: string;
+  name: string;
+  city: string;
+  street: string;
+}
 
