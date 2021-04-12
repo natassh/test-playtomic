@@ -8,10 +8,10 @@
 
 👤 The username and password to enter are the following:
 
-`` ''
+```
 Email: natachaplaytomic@gmail.com
 Password: natacha123
-`` ''
+```
 
 💜 Another important part of this project is the management of the state, which I have managed with Redux as you requested in the test.
 
