@@ -3,7 +3,7 @@ import "firebase/auth";
 import 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAIJCNiLFFcSBSJjN0KtabxocQ4c7Qy4pA",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "test-playtomic-e8907.firebaseapp.com",
     projectId: "test-playtomic-e8907",
     storageBucket: "test-playtomic-e8907.appspot.com",
